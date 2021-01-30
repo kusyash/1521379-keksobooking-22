@@ -15,19 +15,9 @@ function randomInteger(min, max) {
   return Math.floor(rand);
 }
 
-/*eslint no-console: ["error", { allow: ["warn", "error"] }]*/
-console.log(randomInteger);
-
-// https://stackoverflow.com/questions/4187146/truncate-number-to-two-decimal-places-without-rounding
-/*
-function randomFloat(min, max, precision = 2) {
-  let rand = min + Math.random() * (max - min);
-  // .toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
-  let reg = new RegExp('^-?\\d+(?:\\.\\d{0,' + precision + '})?');
-  let result = Math.abs(rand.toString().match(reg)[0] - 0);
-  return result < min - 0 ? min : result;
-}
-*/
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+/* eslint no-console: 0 */
+console.log(randomInteger)
 
 // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
 function randomFloat(min, max, precision = 2) {
@@ -50,4 +40,15 @@ function randomFloat(min, max, precision = 2) {
   return result > max ? max : result;
 }
 
-console.log(randomFloat);
+console.log(randomFloat)
+
+// https://stackoverflow.com/questions/4187146/truncate-number-to-two-decimal-places-without-rounding
+/*
+function randomFloat(min, max, precision = 2) {
+  let rand = min + Math.random() * (max - min);
+  // .toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
+  let reg = new RegExp('^-?\\d+(?:\\.\\d{0,' + precision + '})?');
+  let result = Math.abs(rand.toString().match(reg)[0] - 0);
+  return result < min - 0 ? min : result;
+}
+*/
