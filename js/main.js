@@ -15,6 +15,9 @@ function randomInteger(min, max) {
   return Math.floor(rand);
 }
 
+/*eslint no-console: ["error", { allow: ["warn", "error"] }]*/
+console.log(randomInteger);
+
 // https://stackoverflow.com/questions/4187146/truncate-number-to-two-decimal-places-without-rounding
 /*
 function randomFloat(min, max, precision = 2) {
@@ -46,3 +49,5 @@ function randomFloat(min, max, precision = 2) {
   let result = rand.toFixed(precision) - 0;
   return result > max ? max : result;
 }
+
+console.log(randomFloat);
