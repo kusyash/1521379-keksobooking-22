@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
 * Студент: [Maria Zakharenkova](https://up.htmlacademy.ru/javascript/22/user/1521379).
-* Наставник: `Неизвестно`.
+* Наставник: Наставник: [Богдан Звягинцев](https://htmlacademy.ru/profile/id52757).
 
 ---
 
