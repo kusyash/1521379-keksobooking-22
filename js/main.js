@@ -127,5 +127,3 @@ const demoOffers = function () {
 
   return items;
 }
-
-console.log(demoOffers());
