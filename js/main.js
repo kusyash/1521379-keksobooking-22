@@ -4,6 +4,7 @@ const randomInteger = function(min, max) {
   if(
     min >= 0
     && max >= 0
+    && max >= min
   ) {
     let rand = min + Math.random() * (max + 1 - min);
     return Math.floor(rand);
@@ -18,7 +19,7 @@ const randomFloat = function(min, max, precision = 2) {
   if(
     min >= 0
     && max >= 0
-    && min < max
+    && max >= min
     && precision >= 0
   ) {
     let rand = min + Math.random() * (max - min);
