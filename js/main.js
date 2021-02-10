@@ -4,7 +4,6 @@ const randomInteger = function(min, max) {
   if(
     min >= 0
     && max >= 0
-    && min < max
   ) {
     let rand = min + Math.random() * (max + 1 - min);
     return Math.floor(rand);
@@ -77,15 +76,15 @@ const demoOffers = function () {
 
   let items = [
     {
-      'offer': {
-        'title': 'Pettyburg',
-        'description': 'Лучшая гостиница для животных в Санкт-Петербурге для кошек, собак, хорьков, кроликов, морских свинок, грызунов, птиц.',
+      offer: {
+        title: 'Pettyburg',
+        description: 'Лучшая гостиница для животных в Санкт-Петербурге для кошек, собак, хорьков, кроликов, морских свинок, грызунов, птиц.',
       },
     },
     {
-      'offer': {
-        'title': 'КОТЭ',
-        'description': 'Гостиница для животных КОТЭ предлагает одни из самых низких цен в городе, удобный трансфер.',
+      offer: {
+        title: 'КОТЭ',
+        description: 'Гостиница для животных КОТЭ предлагает одни из самых низких цен в городе, удобный трансфер.',
       },
     },
   ];
@@ -117,31 +116,16 @@ const demoOffers = function () {
     items[i].offer.chekout = randomArrayKey(hours);
     items[i].offer.features = randomArray(features);
     items[i].offer.photos = randomArray(images);
-  }
-  // address: '60.0428323, 30.3762997';
 
+    // - location
+    if(items[i].location === undefined) {
+      items[i].location = {};
+    }
+    items[i].location.x = randomFloat(35.65, 35.7, 5);
+    items[i].location.y = randomFloat(139.7, 139.8, 5);
+  }
 
   return items;
 }
+
 console.log(demoOffers());
-
-
-
-/**
-let result = [
-{
-    'offer': {
-      'title': '',
-      'description': '',
-    },
-  },
-{
-    'offer': {
-      'title': '',
-      'description': '',
-    },
-  },
-];
-////
-return result;
- */
