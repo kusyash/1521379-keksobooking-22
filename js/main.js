@@ -42,8 +42,6 @@ const shuffleArray = function(array) {
 const randomArrayKey = function (array) {
   return array[randomInteger(0, array.length - 1)];
 }
-//console.log(randomArrayKey(['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner']));//
-//console.log(randomArrayKey(['12:00', '13:00', '14:00']));
 
 // https://www.samanthaming.com/tidbits/35-es6-way-to-clone-an-array/
 // eslint-disable-next-line no-unused-vars
@@ -67,10 +65,6 @@ const randomArray = function (array, count = 0) {
 
   return arr;
 }
-// console.log(randomArray(['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner']));
-// console.log(randomArray(['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'], 3));
-// console.log(randomArray(['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'], 11));
-// console.log(randomArray(['12:00', '13:00', '14:00']));
 
 // eslint-disable-next-line no-unused-vars
 const demoOffers = function () {
@@ -161,8 +155,8 @@ const demoOffers = function () {
     items[i].offer.type = randomArrayKey(types);
     items[i].offer.price = randomInteger(10, 100);
     items[i].offer.price = randomInteger(50, 500);
-    items[i].offer.chekin = randomArrayKey(hours);
-    items[i].offer.chekout = randomArrayKey(hours);
+    items[i].offer.checkin = randomArrayKey(hours);
+    items[i].offer.checkout = randomArrayKey(hours);
     items[i].offer.features = randomArray(features);
     items[i].offer.photos = randomArray(images);
 
