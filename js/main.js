@@ -141,5 +141,3 @@ const generateData = function () {
 
   return items;
 }
-
-console.log(generateData());
