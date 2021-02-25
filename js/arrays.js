@@ -18,8 +18,8 @@ const getRandomArrayElement = function (array) {
 
 // https://www.samanthaming.com/tidbits/35-es6-way-to-clone-an-array/
 const getRandomArray = function (array, count = 0) {
-  let arr = [];
-  let mix = shuffleArray(array);
+  const arr = [];
+  const mix = shuffleArray(array);
 
   if(count <= 0) {
     count = getRandomInteger(1, mix.length);
@@ -33,7 +33,7 @@ const getRandomArray = function (array, count = 0) {
     arr.push(mix[i]);
   }
 
-  return arr;
+  return mix.slice(0, count)
 }
 
 export {
