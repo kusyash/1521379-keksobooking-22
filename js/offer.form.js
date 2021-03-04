@@ -1,4 +1,5 @@
 import { MAIN_MARK_COORDINATES } from './constants.js'
+import { sendOffer } from  './api.js'
 
 const htmlForm = document.querySelector('.ad-form');
 const htmlFieldsets = htmlForm.querySelectorAll('fieldset');
@@ -26,6 +27,20 @@ const setAddressCoordinates = (coordinates) => {
 
 htmlFieldAddress.setAttribute('readonly', 'readonly');
 setAddressCoordinates(MAIN_MARK_COORDINATES);
+
+htmlForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  sendOffer(
+    (json) => {
+      console.log(json);
+    },
+    () => {
+      alert('Не удалось отправить форму. Попробуйте ещё раз');
+    },
+    new FormData(event.target),
+  );
+});
 
 export {
   disallow,

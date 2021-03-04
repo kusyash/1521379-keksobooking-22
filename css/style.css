@@ -90,6 +90,22 @@ fieldset {
 }
 
 
+.map__message {
+  width: 100%;
+  min-height: 50px;
+  background-color: #329635;
+  overflow: hidden;
+}
+
+.map__message--error {
+  background-color: #ff6547;
+}
+
+.map__message-text {
+  text-align: center;
+  color: #ffffff;
+}
+
 /**
  * Фильтры объявления
  */

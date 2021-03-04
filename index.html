@@ -22,9 +22,14 @@
       <!-- Блок для вставки карты -->
       <div class="map__canvas" id="map-canvas" style="width: 1200px; height: 500px;"></div>
 
+      <!-- Блок уведомлений/ошибок -->
+      <div class="map__message visually-hidden">
+        <p class="map__message-text"></p>
+      </div>
+
       <!-- Фильтрация объявлений -->
       <div class="map__filters-container">
-        <form action="#" class="map__filters" autocomplete="off">
+        <form action="#" class="map__filters" autocomplete="off" method="post" enctype="multipart/form-data">
           <select name="housing-type" id="housing-type" class="map__filter">
             <option value="any" selected>Любой тип жилья</option>
             <option value="palace">Дворец</option>
@@ -87,7 +92,7 @@
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--wide">
           <label class="ad-form__label" for="title">Заголовок объявления</label>
-          <input id="title" name="title" type="text" placeholder="Милая, уютная квартирка в центре Токио" maxlength="100" minlength="30" required>
+          <input value="Милая, уютная квартирка в центре Токио" id="title" name="title" type="text" placeholder="Милая, уютная квартирка в центре Токио" required>
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--wide">
           <label class="ad-form__label" for="address">Адрес (координаты)</label>
@@ -104,7 +109,7 @@
         </fieldset>
         <fieldset class="ad-form__element">
           <label class="ad-form__label" for="price">Цена за ночь, руб.</label>
-          <input id="price" name="price" type="number" placeholder="5000" max="1000000" required>
+          <input value="1000" id="price" name="price" type="number" placeholder="5000"" required>
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--time">
           <label class="ad-form__label" for="timein">Время заезда и выезда</label>

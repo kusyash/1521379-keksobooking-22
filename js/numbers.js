@@ -1,4 +1,3 @@
-
 // https://learn.javascript.ru/task/random-int-min-max
 const getRandomInteger = function(min, max) {
   if(

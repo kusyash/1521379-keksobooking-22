@@ -77,7 +77,7 @@ const createOfferCard = ({offer, author}) => {
     htmlCardDescription.classList.add('visually-hidden');
   }
 
-  if(offer.photos) {
+  if(offer.photos && offer.photos.length > 0) {
     offer.photos.forEach((srcPhoto, keyPhoto) => {
       if(keyPhoto === 0) {
         htmlCardImg.src = srcPhoto;
@@ -89,6 +89,7 @@ const createOfferCard = ({offer, author}) => {
     });
   } else {
     htmlCardPhotos.classList.add('visually-hidden');
+    htmlCardImg.remove();
   }
 
   if(author.avatar) {
