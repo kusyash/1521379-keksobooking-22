@@ -32,7 +32,7 @@ const getRandomArray = function (array, count = 0) {
   for (let i = 0; i < count; i++) {
     arr.push(mix[i]);
   }
-
+  
   return mix.slice(0, count)
 }
 
