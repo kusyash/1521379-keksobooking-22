@@ -31,11 +31,33 @@ const DESCRIPTIONS = [
   'Уютная гостиница для домашних животных «Кошки в Дом» расположилась центре Петербурга. Мы создавали душевное место для размещения домашних любимцев, где питомец будет чувствовать себя комфортно, пока хозяева отдыхают на море или находятся в командировке.',
 ];
 
+const HOUSES_TYPES = {
+  flat: 'Квартира',
+  bungalow: 'Бунгало',
+  house: 'Дом',
+  palace: 'Дворец',
+};
+
+const MAP_CENTER_COORDINATES = {
+  lat: 35.6801,
+  lng: 139.7655,
+  //lat: 35.6762,
+  //lng: 139.6503,
+}
+
+const MAIN_MARK_COORDINATES = {
+  lat: 35.6801,
+  lng: 139.7655,
+};
+
 export {
   TYPES,
   HOURS,
   FEATURES,
   IMAGES,
   TITLES,
-  DESCRIPTIONS
+  DESCRIPTIONS,
+  HOUSES_TYPES,
+  MAP_CENTER_COORDINATES,
+  MAIN_MARK_COORDINATES
 };
