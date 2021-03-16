@@ -96,10 +96,16 @@ const setOffersToMap = () => {
 
 }
 
+const resetMainMarker = () => {
+  let LatLng = L.latLng(MAIN_MARK_COORDINATES.lat, MAIN_MARK_COORDINATES.lng);
+  mainMarker.setLatLng(LatLng);
+}
+
 export {
   map,
   layer,
   mainMarker,
   initMap,
-  initOffers
+  initOffers,
+  resetMainMarker
 }

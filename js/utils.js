@@ -1,4 +1,4 @@
-const createFetch = (input, params = {}, onSuccess, onError) => {
+const createFetch = (input, params = {}, onSuccess, onFail) => {
   return fetch(
     input,
     {
@@ -10,16 +10,29 @@ const createFetch = (input, params = {}, onSuccess, onError) => {
     },
   )
     .then((response) => {
+
       if (response.ok) {
-        return response.json();
+
+        response.json()
+          .then((data) => {
+            onSuccess(data);
+          });
+
+      } else if (response.status === 400) {
+
+        response.json()
+          .then((errors) => {
+            onFail(errors);
+          });
+
+      } else {
+        throw new Error(`${response.status} ${response.statusText}`);
       }
-      throw new Error(`${response.status} ${response.statusText}`);
+
+
     })
-    .then((json) => {
-      onSuccess(json);
-    })
-    .catch((err) => {
-      onError(err);
+    .catch((error) => {
+      onFail(error);
     });
 };
 

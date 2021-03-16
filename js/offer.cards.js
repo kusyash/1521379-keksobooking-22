@@ -3,20 +3,19 @@ import { HOUSES_TYPES, FEATURES } from './constants.js';
 const htmlCardTemplate = document.querySelector('#card').content;
 
 const createOfferCard = ({offer, author}) => {
-
-  const htmlCardTemplateClone = htmlCardTemplate.querySelector('.popup').cloneNode(true);
-
-  const htmlCardTitle = htmlCardTemplateClone.querySelector('.popup__title');
-  const htmlCardAddress = htmlCardTemplateClone.querySelector('.popup__text--address');
-  const htmlCardPrice = htmlCardTemplateClone.querySelector('.popup__text--price');
-  const htmlCardType = htmlCardTemplateClone.querySelector('.popup__type');
-  const htmlCardCapacity = htmlCardTemplateClone.querySelector('.popup__text--capacity');
-  const htmlCardTime = htmlCardTemplateClone.querySelector('.popup__text--time');
-  const htmlCardDescription = htmlCardTemplateClone.querySelector('.popup__description');
-  const htmlCardFeatures = htmlCardTemplateClone.querySelector('.popup__features');
-  const htmlCardPhotos = htmlCardTemplateClone.querySelector('.popup__photos');
-  const htmlCardImg = htmlCardTemplateClone.querySelector('.popup__photo');
-  const htmlCardAvatarImg = htmlCardTemplateClone.querySelector('.popup__avatar');
+  const htmlCardTemplatePopup = htmlCardTemplate.querySelector('.popup');
+  const htmlCardTemplatePopupClone = htmlCardTemplatePopup.cloneNode(true);
+  const htmlCardTitle = htmlCardTemplatePopupClone.querySelector('.popup__title');
+  const htmlCardAddress = htmlCardTemplatePopupClone.querySelector('.popup__text--address');
+  const htmlCardPrice = htmlCardTemplatePopupClone.querySelector('.popup__text--price');
+  const htmlCardType = htmlCardTemplatePopupClone.querySelector('.popup__type');
+  const htmlCardCapacity = htmlCardTemplatePopupClone.querySelector('.popup__text--capacity');
+  const htmlCardTime = htmlCardTemplatePopupClone.querySelector('.popup__text--time');
+  const htmlCardDescription = htmlCardTemplatePopupClone.querySelector('.popup__description');
+  const htmlCardFeatures = htmlCardTemplatePopupClone.querySelector('.popup__features');
+  const htmlCardPhotos = htmlCardTemplatePopupClone.querySelector('.popup__photos');
+  const htmlCardImg = htmlCardTemplatePopupClone.querySelector('.popup__photo');
+  const htmlCardAvatarImg = htmlCardTemplatePopupClone.querySelector('.popup__avatar');
 
   if(offer.title) {
     htmlCardTitle.textContent = offer.title;
@@ -78,19 +77,18 @@ const createOfferCard = ({offer, author}) => {
   }
 
   if(offer.photos && offer.photos.length > 0) {
-    offer.photos.forEach((srcPhoto, keyPhoto) => {
-      if(keyPhoto === 0) {
-        htmlCardImg.src = srcPhoto;
-      } else {
-        const htmlCardImgClone = htmlCardImg.cloneNode(true);
-        htmlCardImgClone.src = srcPhoto;
-        htmlCardPhotos.appendChild(htmlCardImgClone);
-      }
+    const htmlCardImgClone = htmlCardImg.cloneNode();
+
+    offer.photos.forEach((srcPhoto) => {
+      const htmlCardImgCloneCurrent = htmlCardImgClone.cloneNode();
+      htmlCardImgCloneCurrent.src = srcPhoto;
+      htmlCardPhotos.appendChild(htmlCardImgCloneCurrent);
     });
+
   } else {
     htmlCardPhotos.classList.add('visually-hidden');
-    htmlCardImg.remove();
   }
+  htmlCardImg.remove();
 
   if(author.avatar) {
     htmlCardAvatarImg.src = author.avatar;
@@ -98,7 +96,7 @@ const createOfferCard = ({offer, author}) => {
     htmlCardAvatarImg.classList.add('visually-hidden');
   }
 
-  return htmlCardTemplateClone;
+  return htmlCardTemplatePopupClone;
 };
 
 export { createOfferCard };

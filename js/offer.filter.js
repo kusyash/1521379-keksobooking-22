@@ -18,7 +18,12 @@ const activate = () => {
   });
 };
 
+const reset = () => {
+  htmlFilter.reset();
+};
+
 export {
   disallow,
-  activate
+  activate,
+  reset
 }
