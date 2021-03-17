@@ -56,20 +56,25 @@ const showError = (error) => {
 }
 
 const initOffers = () => {
-  getOffers(
-    (json) => {
+  getOffers()
+    .then((json) => {
       offers = json;
-      setOffersToMap();
-    },
-    () => {
+      setOffersToMap(filterOffer(offers));
+    })
+    .catch(() => {
       showError('Загрузить список предложений не удалось.');
-    },
-  );
+    })
 }
 
-const setOffersToMap = () => {
+const filterOffer = (offers) => {
+
+  return offers;
+};
+
+const setOffersToMap = (offers) => {
 
   offers.forEach(({ author, offer, location: { lat, lng } }) => {
+
     const pin = L.icon({
       iconUrl: 'img/pin.svg',
       iconSize: [38, 95],

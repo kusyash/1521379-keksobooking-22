@@ -1,7 +1,9 @@
 import { createFetch } from './utils.js';
 
-const getOffers = (onSuccess, onFail) => {
-  createFetch('https://22.javascript.pages.academy/keksobooking/data', {}, onSuccess, onFail);
+const getOffers = () => {
+  return new Promise( (resolve, reject) => {
+    createFetch('https://22.javascript.pages.academy/keksobooking/data', {}, resolve, reject);
+  });
 };
 
 const sendOffer = (onSuccess, onFail, body) => {
