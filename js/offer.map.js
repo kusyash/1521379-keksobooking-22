@@ -69,11 +69,9 @@ const initOffers = () => {
 }
 
 const setOffersToMap = (offers) => {
-
   offers.forEach((offer) => {
     setOfferMarker(offer);
   });
-
 }
 
 const setOfferMarker = ({ author, offer, location: { lat, lng } }) => {
@@ -100,11 +98,14 @@ const setOfferMarker = ({ author, offer, location: { lat, lng } }) => {
     .addTo(map)
     .bindPopup(createOfferCard({ author, offer }));
 
-  /*setTimeout(()=> {
-    marker.removeFrom(map)
-  },1500)*/
+  markers[String(lat) + String(lng)] = marker;
+}
 
-  markers[String(lat)+String(lng)] = marker;
+const removeOfferMarker = ({location: { lat, lng }}) => {
+  const id = String(lat) + String(lng);
+  if(markers[id]) {
+    markers[id].removeFrom(map);
+  }
 }
 
 const resetMainMarker = () => {
