@@ -2,6 +2,7 @@ import { MAP_CENTER_COORDINATES, MAIN_MARK_COORDINATES } from './constants.js'
 //import { generateData } from './data.js'
 import { getOffers } from './api.js'
 import { createOfferCard } from './offer.cards.js'
+import { filter } from './offer.filter.js'
 
 /* global L:readonly */
 
@@ -9,6 +10,7 @@ let map = null;
 let layer = null;
 let offers = [];
 let mainMarker = null;
+let markers = {};
 
 const initMap = () => {
   map = L.map('map-canvas');
@@ -59,46 +61,50 @@ const initOffers = () => {
   getOffers()
     .then((json) => {
       offers = json;
-      setOffersToMap(filterOffer(offers));
+      setOffersToMap(filter(offers));
     })
     .catch(() => {
       showError('Загрузить список предложений не удалось.');
     })
 }
 
-const filterOffer = (offers) => {
-
-  return offers;
-};
-
 const setOffersToMap = (offers) => {
 
-  offers.forEach(({ author, offer, location: { lat, lng } }) => {
-
-    const pin = L.icon({
-      iconUrl: 'img/pin.svg',
-      iconSize: [38, 95],
-      iconAnchor: [22, 94],
-      popupAnchor: [-3, -70],
-    });
-
-    const marker = L.marker(
-      {
-        lat,
-        lng,
-      },
-      {
-        keepInView: true,
-        icon: pin,
-      },
-    );
-
-    marker
-      .addTo(map)
-      .bindPopup(createOfferCard({ author, offer }));
-
+  offers.forEach((offer) => {
+    setOfferMarker(offer);
   });
 
+}
+
+const setOfferMarker = ({ author, offer, location: { lat, lng } }) => {
+
+  const pin = L.icon({
+    iconUrl: 'img/pin.svg',
+    iconSize: [38, 95],
+    iconAnchor: [22, 94],
+    popupAnchor: [-3, -70],
+  });
+
+  const marker = L.marker(
+    {
+      lat,
+      lng,
+    },
+    {
+      keepInView: true,
+      icon: pin,
+    },
+  );
+
+  marker
+    .addTo(map)
+    .bindPopup(createOfferCard({ author, offer }));
+
+  /*setTimeout(()=> {
+    marker.removeFrom(map)
+  },1500)*/
+
+  markers[String(lat)+String(lng)] = marker;
 }
 
 const resetMainMarker = () => {

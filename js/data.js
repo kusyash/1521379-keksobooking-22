@@ -49,5 +49,5 @@ const generateData = function () {
 
 export {
   generateOffer,
-  generateData
+  generateData,
 };

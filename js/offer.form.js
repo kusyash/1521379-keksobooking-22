@@ -7,7 +7,7 @@ const htmlForm = document.querySelector('.ad-form');
 const htmlFieldsets = htmlForm.querySelectorAll('fieldset');
 const htmlFieldAddress = htmlForm.querySelector('#address');
 const htmlFieldTitle = htmlForm.querySelector('#title');
-const htmlButtonResset = htmlForm.querySelector('.ad-form__reset');
+const htmlButtonReset = htmlForm.querySelector('.ad-form__reset');
 const htmlMain = document.querySelector('main');
 const htmlSuccess = document.querySelector('#success').content.querySelector('.success');
 const htmlError = document.querySelector('#error').content.querySelector('.error');
@@ -44,7 +44,7 @@ const init = () => {
       new FormData(event.target),
     );
   });
-  htmlButtonResset.addEventListener('click', (event) => {
+  htmlButtonReset.addEventListener('click', (event) => {
     event.preventDefault();
 
     htmlForm.reset();
@@ -99,7 +99,7 @@ const showSuccess = () => {
   document.addEventListener('mousedown', closeSuccess);
   htmlSuccess.style.zIndex = 1000;
   htmlMain.append(htmlSuccess);
-  htmlButtonResset.click();
+  htmlButtonReset.click();
 }
 
 const closeError = (evt) => {
